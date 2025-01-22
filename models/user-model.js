@@ -6,10 +6,10 @@ const userSchema = new mongoose.Schema({
     password: String,
     email: String,
     contact:Number,
-    cart:{
-        type: Array,
-        default: []
-    },
+    cart:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'product',
+    }],
     order:{
         type:Array,
         default: []

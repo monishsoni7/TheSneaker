@@ -1,0 +1,55 @@
+<%- include('./partials/header') %>
+<% if(success.length>0){ %>
+    <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-700">
+        <span class="inline-block mt-1 mb-1 text-white">
+            <%= success %>
+        </span>
+    </div> 
+<% } %>
+<div class="w-full h-screen flex items-start px-20 py-16 bg-white"> <!-- Changed to bg-white -->
+    <div class="w-[25%] flex h-screen flex-col items-start">
+        <div class="flex items-center gap-2">
+            <h3 class="text-black">Sort by</h3> <!-- Changed to text-black -->
+            <form action="/shop">
+                <select class="border-[1px] px-2 py-1 bg-gray-200 text-black" name="sortby" id=""> <!-- Changed to bg-gray-200 and text-black -->
+                    <option value="popular">Popular</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </form>
+        </div>
+        <div class="flex flex-col mt-20">
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">New Collection</a> <!-- Changed to text-black -->
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">All Products</a> <!-- Changed to text-black -->
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Discounted Products</a> <!-- Changed to text-black -->
+        </div>
+        <div class="mt-32">
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Filter by :</a> <!-- Changed to text-black -->
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Availability</a> <!-- Changed to text-black -->
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Discount</a> <!-- Changed to text-black -->
+        </div>
+    </div>
+    <div class="w-[75%] flex flex-col gap-5 h-screen">
+        <div class="grid grid-cols-3 gap-5 mb-32">
+            <% products.forEach(function(product){ %>
+                <div class="w-60">
+                    <div class="w-full h-52 flex items-center justify-center  border-2 border-black transition-transform duration-300 hover:scale-105"> <!-- Changed to bg-gray-200 and border-black -->
+                        <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                            alt="">
+                    </div>
+                    <div class="flex justify-between text-white bg-[#333]  items-center px-4 py-4"> <!-- Changed to bg-white -->
+                        <div>
+                            <h3 class="text-lg font-bold">
+                                <%= product.name %>
+                            </h3>
+                            <h4>₹ <%= product.price %></h4>
+                        </div>
+                        <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-blue-400 transition duration-300" href="/addtocart/<%= product._id %>">
+                            <i class="ri-add-line" style="color: black;"></i>
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer') %>
