@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const isLoggedin = require('../middlewares/isLoggedin');
 const Product = require('../models/product_model'); // Import the product model
-const userModel = require('../models/user-Model');
+const userModel = require('../models/user-model');
 
 router.get("/", (req, res) => {
     let error = req.flash("error");
