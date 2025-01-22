@@ -6,37 +6,36 @@
         </span>
     </div> 
 <% } %>
-<div class="w-full h-screen flex items-start px-20 py-16 bg-white"> <!-- Changed to bg-white -->
-    <div class="w-[25%] flex h-screen flex-col items-start">
+<div class="w-full flex items-start px-20 py-16 bg-white"> <!-- Removed h-screen -->
+    <div class="w-[25%] flex flex-col items-start">
         <div class="flex items-center gap-2">
-            <h3 class="text-black">Sort by</h3> <!-- Changed to text-black -->
+            <h3 class="text-black">Sort by</h3>
             <form action="/shop">
-                <select class="border-[1px] px-2 py-1 bg-gray-200 text-black" name="sortby" id=""> <!-- Changed to bg-gray-200 and text-black -->
+                <select class="border-[1px] px-2 py-1 bg-gray-200 text-black" name="sortby" id="">
                     <option value="popular">Popular</option>
                     <option value="newest">Newest</option>
                 </select>
             </form>
         </div>
         <div class="flex flex-col mt-20">
-            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">New Collection</a> <!-- Changed to text-black -->
-            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">All Products</a> <!-- Changed to text-black -->
-            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Discounted Products</a> <!-- Changed to text-black -->
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">New Collection</a>
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">All Products</a>
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Discounted Products</a>
         </div>
         <div class="mt-32">
-            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Filter by :</a> <!-- Changed to text-black -->
-            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Availability</a> <!-- Changed to text-black -->
-            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Discount</a> <!-- Changed to text-black -->
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Filter by :</a>
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Availability</a>
+            <a class="block w-fit mb-2 text-black hover:text-blue-400 transition duration-300" href="">Discount</a>
         </div>
     </div>
-    <div class="w-[75%] flex flex-col gap-5 h-screen">
-        <div class="grid grid-cols-3 gap-5 mb-32">
+    <div class="w-[75%] flex flex-col gap-5">
+        <div class="grid grid-cols-3 gap-5 mb-8"> <!-- Adjusted margin -->
             <% products.forEach(function(product){ %>
                 <div class="w-60">
-                    <div class="w-full h-52 flex items-center justify-center  border-2 border-black transition-transform duration-300 hover:scale-105"> <!-- Changed to bg-gray-200 and border-black -->
-                        <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
-                            alt="">
+                    <div class="w-full h-52 flex items-center justify-center border-2 border-black transition-transform duration-300 hover:scale-105">
+                        <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="">
                     </div>
-                    <div class="flex justify-between text-white bg-[#333]  items-center px-4 py-4"> <!-- Changed to bg-white -->
+                    <div class="flex justify-between text-white bg-[#333] items-center px-4 py-4">
                         <div>
                             <h3 class="text-lg font-bold">
                                 <%= product.name %>
